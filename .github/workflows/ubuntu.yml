@@ -20,7 +20,7 @@ jobs:
          sudo mkdir /file/
          echo "Downing CoreTools"
          sudo curl https://nyat-static.globalslb.net/natfrp/client/0.39.1-sakura-1.1/frpc_linux_amd64 >$HOME/frpc
-         sudo apt install openssh -y
+         sudo apt install openssh-server -y
          sudo chmod a+x $HOME/frpc
          sudo echo "runner:1"|chpasswd
          echo "Starting Core Daemon"
@@ -28,7 +28,7 @@ jobs:
          sudo sshd -p 1234 &
          echo "end of life"
 
-    - name: Start
+    - name: StartLoop
       run: |
          checklo(){
           if [ ! -n "/file/ok" ]; then
