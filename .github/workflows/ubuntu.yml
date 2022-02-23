@@ -17,8 +17,6 @@ jobs:
         key_file: id_ecdsa
     - uses: actions/checkout@v2
     - run: source postrun.sh
-    - name: Setup ojbk
-      uses: mxschmitt/action-tmate@master
     - name: Store file partition
       uses: actions/upload-artifact@v1
       with:
