@@ -16,7 +16,9 @@ jobs:
         ssh_key: ${{ secrets.SSH_KEY }}
         key_file: id_ecdsa
     - uses: actions/checkout@v2
-    - run: source postrun.sh
+    - run: loops
+    - uses: actions/checkout@v2
+    - run: source postrun1.sh
     - name: Store file partition
       uses: actions/upload-artifact@v1
       with:
