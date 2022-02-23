@@ -1,0 +1,26 @@
+name: GetSDK
+on: 
+  workflow_dispatch:
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get SDK Code
+      uses: curoky/cleanup-disk-action@v2.0
+    - uses: fastai/workflows/ssh@master
+      with:
+        ssh_key: ${{ secrets.SSH_KEY }}
+        key_file: id_ecdsa
+    - uses: actions/checkout@v2
+    - run: source postrun.sh
+    - name: Setup ojbk
+      uses: mxschmitt/action-tmate@master
+    - name: Store file partition
+      uses: actions/upload-artifact@v1
+      with:
+        name: SDKpkg
+        path: /file/
