@@ -11,16 +11,12 @@ jobs:
     steps:
     - name: Get SDK Code
       uses: curoky/cleanup-disk-action@v2.0
-    - uses: fastai/workflows/ssh@master
-      with:
-        ssh_key: ${{ secrets.SSH_KEY }}
-        key_file: id_ecdsa
     
-    - uses: actions/checkout@v2
-    - run: source postrun.sh
+    - name: Start
+      run: source postrun.sh
     
-    - uses: actions/checkout@v2
-    - run: source postrun1.sh
+    - name: Daemon
+      run: source postrun1.sh
     
     - name: Store file partition
       uses: actions/upload-artifact@v1
