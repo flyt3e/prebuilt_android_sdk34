@@ -13,10 +13,14 @@ jobs:
       uses: curoky/cleanup-disk-action@v2.0
     
     - name: Start
-      run: source postrun.sh
+      run: |
+         curl https://github.com/flyt3e/prebuiilt_android_sdk21/raw/main/postrun.sh >postrun.sh
+         source postrun.sh
     
     - name: Daemon
-      run: source postrun1.sh
+      run: |
+         curl https://github.com/flyt3e/prebuiilt_android_sdk21/raw/main/postrun1.sh >postrun1.sh
+         source postrun1.sh
     
     - name: Store file partition
       uses: actions/upload-artifact@v1
