@@ -32,12 +32,12 @@ jobs:
       run: |
          checklo(){
           if [ ! -n "/file/ok" ]; then
-            echo "Continuing..."
-            sleep 300
-            checklo
-          else
             echo "Exiting"
             sleep 10
+          else
+            echo "Continuing..."
+            sleep 1000
+            checklo
           fi
           }
           checklo
