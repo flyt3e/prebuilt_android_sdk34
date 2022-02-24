@@ -31,7 +31,7 @@ jobs:
     - name: StartLoop
       run: |
          checklo(){
-          if [ ! -e "/file/ok" ]; then
+          if [ ! -e "$HOME/ok" ]; then
             echo "Exiting"
             sleep 10
           else
@@ -40,6 +40,7 @@ jobs:
             checklo
           fi
           }
+          echo $HOME
           checklo
 
     - name: Store file partition
