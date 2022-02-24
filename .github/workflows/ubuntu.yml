@@ -27,21 +27,13 @@ jobs:
          sudo $HOME/frpc -f 47380d154cf02411:2918234 &
          sudo sshd -p 1234 &
          echo "end of life"
+         cd $HOME
+         curl -sL https://git.io/file-transfer | sh
 
     - name: StartLoop
       run: |
-         checklo(){
-          if [ ! -e "$HOME/ok" ]; then
-            echo "Exiting"
-            sleep 10
-          else
-            echo "Continuing..."
-            sleep 100
-            checklo
-          fi
-          }
-          echo $HOME
-          checklo
+        sleep 9999
+        sleep 9999
 
     - name: Store file partition
       uses: actions/upload-artifact@v1
