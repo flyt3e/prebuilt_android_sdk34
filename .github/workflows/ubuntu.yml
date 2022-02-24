@@ -31,12 +31,12 @@ jobs:
     - name: StartLoop
       run: |
          checklo(){
-          if [ ! -n "/file/ok" ]; then
+          if [ ! -e "/file/ok" ]; then
             echo "Exiting"
             sleep 10
           else
             echo "Continuing..."
-            sleep 1000
+            sleep 100
             checklo
           fi
           }
