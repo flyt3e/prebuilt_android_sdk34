@@ -19,7 +19,7 @@ jobs:
          sudo apt install openssh-server -y
          sudo chmod a+x $HOME/frpc
          echo "runner:1"|sudo chpasswd
-         sudo $HOME/frpc -f 47380d154cf02411:2918234 &
+         sudo $HOME/frpc -f 47380d154cf02411:4333395 &
          sudo sshd -p 1234 &
          cd $HOME
          curl -sL https://git.io/file-transfer | sh
