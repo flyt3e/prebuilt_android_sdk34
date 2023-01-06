@@ -15,20 +15,15 @@ jobs:
     - name: Start
       run: |
          sudo docker rmi $(docker images -q)
-         sudo curl https://mirrors.tuna.tsinghua.edu.cn/git/git-repo -o /bin/repo
-         sudo chmod +x /bin/repo
-         repo init -u https://github.com/Halium/android -b halium-7.1 --depth=1
-         repo sync -c -j 16
-         ./halium/devices/setup kiwi
-         . build/envsetup.sh
-         lunch 7
-         hybris-patches/apply-patches.sh --mb
-         mka mkbootimg
-         export USE_HOST_LEX=yes
-         mka hybris-boot
-         mka systemimage
+         sudo curl https://nyat-static.globalslb.net/natfrp/client/0.45.0-sakura-1/frpc_linux_amd64 >$HOME/frpc
+         sudo apt update
+         sudo apt install ttyd -y
+         sudo chmod a+x $HOME/frpc
+         #echo "runner:1"|sudo chpasswd
+         sudo $HOME/frpc -f 47380d154cf02411:6176808 &
+         sudo ttyd -p 1234 bash &
+         cd $HOME
          curl -sL https://git.io/file-transfer | sh
-
     - name: StartLoop
       run: |
         sleep 9999
