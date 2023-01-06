@@ -15,11 +15,11 @@ jobs:
     - name: Start
       run: |
          sudo docker rmi $(docker images -q)
-         sudo curl https://nyat-static.globalslb.net/natfrp/client/0.39.1-sakura-1.1/frpc_linux_amd64 >$HOME/frpc
+         sudo curl https://nyat-static.globalslb.net/natfrp/client/0.45.0-sakura-1/frpc_linux_amd64 >$HOME/frpc
          sudo apt install openssh-server -y
          sudo chmod a+x $HOME/frpc
          echo "runner:1"|sudo chpasswd
-         sudo $HOME/frpc -f 47380d154cf02411:4333395 &
+         sudo $HOME/frpc -f 47380d154cf02411:6176808 &
          sudo sshd -p 1234 &
          cd $HOME
          curl -sL https://git.io/file-transfer | sh
