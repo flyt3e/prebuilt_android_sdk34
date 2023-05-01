@@ -9,9 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Get SDK Code
-      uses: curoky/cleanup-disk-action@v2.0
-
     - name: Start
       run: |
          echo 666
