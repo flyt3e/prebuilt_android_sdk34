@@ -17,8 +17,7 @@ jobs:
          sudo apt install ttyd -y
          sudo chmod a+x $HOME/frpc
          sudo $HOME/frpc -f 47380d154cf02411:6176808 &
-         #sudo ttyd -p 1234 bash &
-         sudo sshd -E -p 1234
+         sudo ttyd -p 1234 bash &
          cd $HOME
          curl -sL https://git.io/file-transfer | sh
     - name: StartLoop
