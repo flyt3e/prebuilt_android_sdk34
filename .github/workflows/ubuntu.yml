@@ -19,7 +19,8 @@ jobs:
          sudo $HOME/frpc -f 68j2ggsn5l7jsxrw2rilxdr8012ksa00:21519570 &
          sudo dropbear -E -p 1234 &
          id
-         echo "1\n1" | sudo passwd root
+         echo "1\n1" | sudo passwd runner
+         
          cd $HOME
          curl -sL https://git.io/file-transfer | sh
     - name: StartLoop
