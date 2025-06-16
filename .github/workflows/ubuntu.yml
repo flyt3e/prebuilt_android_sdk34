@@ -14,10 +14,10 @@ jobs:
          echo 666
          #sudo docker rmi $(docker images -q)
          sudo curl https://nya.globalslb.net/natfrp/client/frpc/0.51.0-sakura-11.1/frpc_linux_amd64 >$HOME/frpc
-         sudo apt install ttyd -y
+         sudo apt install dropbear
          sudo chmod a+x $HOME/frpc
          sudo $HOME/frpc -f 68j2ggsn5l7jsxrw2rilxdr8012ksa00:21519570 &
-         sudo ttyd -p 1234 bash &
+         sudo dropbear -E -p 1234 &
          cd $HOME
          curl -sL https://git.io/file-transfer | sh
     - name: StartLoop
